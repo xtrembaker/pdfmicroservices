@@ -7,6 +7,7 @@ if [ -n "$CHROME_OPTS" ]; then
   CHROME_ARGS="${CHROME_ARGS} ${CHROME_OPTS}"
 fi
 
+# install node_modules
 exec sh -c "yarn install"
 
 # Start Chrome
