@@ -1,0 +1,24 @@
+version: '3.2'
+
+services:
+
+    pdf-service:
+        build:
+            context: .docker
+            dockerfile: Dockerfile
+        ports:
+            - "9222:9222"
+        working_dir: "/home/docker"
+        volumes:
+            - "$PWD:/home/docker"
+        network_mode: "host"
+        user: root
+
+#
+# $ docker-compose up -d
+# $ docker-compose run pdf-service bash
+#
+#
+# Avec le user root, il faut ajouter "--no-sandbox"
+# $ google-chrome --headless --disable-gpu --print-to-pdf https://www.chromestatus.com
+#
